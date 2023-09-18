@@ -1,5 +1,7 @@
 class TasksController < ApplicationController
   def index
+    #@q = current_user.tasks.ransack(params[:q])
+    #@tasks = @q.result(distinct: true).recent
     @tasks = current_user.tasks
     #@tasks = Task.all
   end
@@ -13,6 +15,7 @@ class TasksController < ApplicationController
     end
 
     if @task.save
+      TaskMailer.creation_email(@task).deliver_now
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました"
     else
       render :new

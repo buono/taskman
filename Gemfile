@@ -42,6 +42,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # added
 gem 'slim-rails'
 gem 'html2slim'
+gem 'ransack'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
