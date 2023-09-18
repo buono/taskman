@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
   def index
-    #@q = current_user.tasks.ransack(params[:q])
-    #@tasks = @q.result(distinct: true).recent
-    @tasks = current_user.tasks
+    @q = current_user.tasks.ransack(params[:q])
+    @tasks = @q.result(distinct: true).recent
+    #@tasks = current_user.tasks
     #@tasks = Task.all
   end
 
